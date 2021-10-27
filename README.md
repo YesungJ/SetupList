@@ -51,7 +51,66 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
   
  8. wsl --list --verbose
   Nameとバージョン確認
-  wsl --set-version <name> <version+1>
+  wsl --set-version <name> <2>
+  2であったら問題ない
   BIOSによる仮想化設定必要かも
  ```
+8. install zsh
+ ```
+ apt install zsh
+
+ ```
+
+
+9. oh my zsh
+https://ohmyz.sh/#install
+
+//デフォルト設定
+$sudo chsh -s $(which zsh) $(whoami) 
+
+おすすめ？
+zsh-autosuggestions
+zsh-syntax-highlighting
  
+ 
+ theme
+https://docs.microsoft.com/ja-jp/windows/terminal/customize-settings/color-schemes 
+ 
+ setting.jsonで
+ Solarized Dark
+ ```
+                 "colorScheme": "Solarized Dark",
+ ```
+ or terminal splash
+https://terminalsplash.com/
+でMonokai Night for Windows Terminalのコードダウンロードし
+setting.jsonのschemesに入れる
+
+→
+```
+                "colorScheme": "Monokai Night"
+```
+にする
+
+
+10. powerlevel10k 
+ https://github.com/romkatv/powerlevel10k#oh-my-zsh
+ 
+ code ~/.zshrc
+ 
+
+## trouble
+### sudoのときは
+```
+sudo su - 
+```
+か
+rootのpassword 設定が必要
+```
+$ sudo su -
+# passwd
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+```
+`su`でエラーが出た場合は1番目を使う
